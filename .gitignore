@@ -1,0 +1,35 @@
+# ===== 忽略所有内容，只保留工具文件 =====
+/*
+!/.gitignore
+!/convert.py
+!/epub-style.css
+!/README.md
+!/LICENSE
+!/metadata.yaml.example
+
+# ===== 以下内容也忽略（双重保险） =====
+# 临时构建目录
+_temp_epub_build/
+
+# 生成的 EPUB 文件
+*.epub
+
+# 缺失引用报告
+缺失引用报告.txt
+
+# 用户自己的元数据
+metadata.yaml
+
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+
+# 操作系统
+.DS_Store
+Thumbs.db
