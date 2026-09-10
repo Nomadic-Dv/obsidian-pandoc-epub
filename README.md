@@ -68,7 +68,7 @@ pandoc --version
 
 ### 第一步：准备三个文件
 
-**1. `metadata.yaml`**（电子书元数据）：
+**1. `metadata.yaml`**（电子书元数据，从仓库中的 `metadata.yaml.example` 复制并改名）：
 
 ```yaml
 ---
@@ -254,3 +254,11 @@ MIT License。你可以自由修改、分发、商用。
 ## 贡献
 
 欢迎提交 Issue 和 PR。如果你有更好的中文 EPUB 排版建议，或者想添加更多 Obsidian 特性支持（如 callout、双链、Dataview 结果导出等），欢迎交流。
+
+## 版本历史
+
+### v1.0.0 (2026-09-10)
+- 首次发布
+- 支持多文件夹合并
+- 中文排版样式
+- 缺失引用报告
