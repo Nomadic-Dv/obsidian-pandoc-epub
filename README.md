@@ -1,6 +1,16 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.7%2B-blue.svg)](https://www.python.org/)
+[![Pandoc](https://img.shields.io/badge/Pandoc-3.0%2B-blue.svg)](https://pandoc.org/)
+[![GitHub stars](https://img.shields.io/github/stars/Nomadic-Dv/obsidian-pandoc-epub.svg)](https://github.com/Nomadic-Dv/obsidian-pandoc-epub/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/Nomadic-Dv/obsidian-pandoc-epub.svg)](https://github.com/Nomadic-Dv/obsidian-pandoc-epub/issues)
+[![GitHub last commit](https://img.shields.io/github/last-commit/Nomadic-Dv/obsidian-pandoc-epub.svg)](https://github.com/Nomadic-Dv/obsidian-pandoc-epub/commits/main)
+
+
 # Obsidian → EPUB 合并导出工具
 
-> 把分散在 Obsidian 仓库多个文件夹中的笔记，合并导出为一本排版精美的 EPUB 电子书。
+> **把分散在多文件夹里的 Obsidian 笔记，合并成一本排版精美的 EPUB。**
+> 文件夹 → 一级标题 · 笔记文件 → 二级标题 · 图片自动嵌入 · 中文排版友好。
+> 全程纯 Python + Pandoc，无需任何 pip 依赖。
 
 ## 功能特性
 
@@ -29,9 +39,9 @@
 
 ## 环境要求
 
-| 依赖 | 版本要求 | 说明 |
-|------|---------|------|
-| Python | 3.7+ | 运行转换脚本 |
+| 依赖     | 版本要求              | 说明                                    |
+| ------ | ----------------- | ------------------------------------- |
+| Python | 3.7+              | 运行转换脚本                                |
 | Pandoc | **3.0+**（推荐 3.1+） | 核心转换工具，`--epub-chapter-level` 需要 3.0+ |
 
 ### 安装 Pandoc
@@ -253,7 +263,7 @@ MIT License。你可以自由修改、分发、商用。
 
 ## 贡献
 
-欢迎提交 Issue 和 PR。如果你有更好的中文 EPUB 排版建议，或者想添加更多 Obsidian 特性支持（如 callout、双链、Dataview 结果导出等），欢迎交流。
+欢迎提交 Issue 和 PR。如果你有更好的中文 EPUB 排版建议，欢迎交流。
 
 ## 版本历史
 
@@ -262,3 +272,9 @@ MIT License。你可以自由修改、分发、商用。
 - 支持多文件夹合并
 - 中文排版样式
 - 缺失引用报告
+
+
+## 相关项目
+
+- [epub-weasyprint-pdf](https://github.com/Nomadic-Dv/epub-weasyprint-pdf) —— 把 EPUB 转成出版级排版的 PDF（WeasyPrint 实现）  
+  👉 **工作流**：Obsidian → EPUB → PDF
