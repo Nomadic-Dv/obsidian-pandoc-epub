@@ -63,15 +63,24 @@ pandoc --version
 把 `convert.py`、`epub-style.css`、`metadata.yaml` 放在 Obsidian 仓库的**根目录**（即和你的笔记文件夹同级）：
 
 ```
-你的 Obsidian 仓库/
-├── convert.py              ← 主脚本
-├── epub-style.css          ← EPUB 样式表（首行缩进 2 字符）
-├── metadata.yaml           ← 电子书元数据（书名、作者）
-├── assets/                 ← 你的图片附件目录
-├── 财富 | 赚钱/             ← 要合并的文件夹 1
-├── 反焦虑 | 治愈 | 励志/    ← 要合并的文件夹 2
-├── 思考/                    ← 要合并的文件夹 3
-└── ...（其他笔记文件夹不参与合并）
+你的 Obsidian 仓库/  
+├── convert.py               ← 主脚本  
+├── epub-style.css           ← EPUB 样式表（首行缩进 2 字符 + iBooks 日夜间颜色）  
+├── metadata.yaml            ← 电子书元数据（书名、作者）  
+├── metadata.yaml.example    ← 元数据示例文件（复制后改名为 metadata.yaml）  
+├── body-open.html           ← Pandoc 模板：<body> 开标签（可选）  
+├── body-close.html          ← Pandoc 模板：</body> 闭标签（可选）  
+├── assets/                  ← 你的图片附件目录  
+├── fonts/                   ← 嵌入字体目录（可选，iBooks 自定义字体用）  
+│ ├── SourceHanSans-Regular.otf  
+│ └── SourceHanSans-Bold.otf  
+├── 财富 | 赚钱/                            ← 要合并的文件夹 1  
+├── 反焦虑 | 治愈 | 励志/                    ← 要合并的文件夹 2  
+├── 思考/                                  ← 要合并的文件夹 3  
+├── CHANGELOG.md                          ← 版本历史  
+├── LICENSE                               ← MIT 许可证  
+├── README.md                             ← 本文件  
+└── ...                                   （其他笔记文件夹不参与合并）
 ```
 
 ## 快速开始
@@ -154,7 +163,28 @@ python convert.py
 - 行距 1.75，两端对齐
 - 图片居中，代码块灰底，引用块左侧灰色竖线
 
-如需**取消首行缩进**，把 `p { text-indent: 2em; }` 改为 `text-indent: 0;` 即可。
+### **如需取消首行缩进**
+
+把 `p { text-indent: 2em; }` 改为 `text-indent: 0;` 即可。
+
+
+## **针对 iBooks 的夜间模式适配**
+
+Apple Books 在夜间模式下会强制覆盖正文颜色（甚至包括背景色、边框色），普通 CSS 无法生效。
+
+因此 `epub-style.css` 中额外加入了针对 iBooks 的规则：
+
+- 使用 `ibooks-dark-theme-use-custom-text-color` 类名，让 iBooks 停止接管容器内文字的颜色
+- 用 `@media (prefers-color-scheme: light)` 和 `@media (prefers-color-scheme: dark)` 分别定义日间、夜间的文字颜色
+- 对需要高亮的文字（如 `.highlight`）单独设置颜色，保证在日间和夜间都能看清
+
+### **使用前提**
+
+- 读者必须在 iBooks 中选择 **“原始字体”**，否则所有自定义颜色都会被覆盖
+- 容器级类名会接管容器内**全部**文字颜色，普通正文也需要显式指定颜色，否则可能继承高亮色
+- iBooks 夜间模式**不触发**标准 `prefers-color-scheme: dark` 媒体查询，所以夜间颜色必须靠该类名解锁，不能只靠媒体查询
+
+详细机制、测试结论与选择器写法，见仓库中的 [iBooks 自定义字体颜色配置文档](./iBooks%20自定义字体颜色配置文档.md)。
 
 ## 完整脚本
 
@@ -272,6 +302,9 @@ MIT License。你可以自由修改、分发、商用。
 - 支持多文件夹合并
 - 中文排版样式
 - 缺失引用报告
+
+### v1.1.0 (2026-09-13)
+- 新增针对iBook的日间/夜间文本设置
 
 
 ## 相关项目
