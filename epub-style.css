@@ -1,8 +1,34 @@
+/* ===== 字体声明 ===== */
 @font-face {
     font-family: "苹方";
     src: url("../fonts/苹方字体.ttf");
     font-weight: normal;
     font-style: normal;
+}
+
+/* ===== iBook专用 ===== */
+:root {
+    color-scheme: light dark;
+}
+
+/* 日间模式 */
+@media (prefers-color-scheme: light) {
+    .ibooks-dark-theme-use-custom-text-color p {
+        
+    }
+    .ibooks-dark-theme-use-custom-text-color p .highlight {
+        color: #cc0000; /* span 在白天的颜色 */
+    }
+}
+
+/* 夜间模式 */
+@media (prefers-color-scheme: dark) {
+    .ibooks-dark-theme-use-custom-text-color p {
+        
+    }
+    .ibooks-dark-theme-use-custom-text-color p .highlight {
+        color: #ffcc00; /* span 在夜间的颜色 */
+    }
 }
 
 /* ===== 基础设置 ===== */

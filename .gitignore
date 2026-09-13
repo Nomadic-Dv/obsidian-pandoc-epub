@@ -8,6 +8,8 @@
 !/metadata.yaml.example
 !/CHANGELOG.md
 !/fonts/
+!/body-open.html
+!/body-close.html
 
 # ===== 以下内容也忽略（双重保险） =====
 # 临时构建目录
