@@ -5,7 +5,14 @@ Obsidian → EPUB 合并导出工具
 MIT License
 Copyright (c) 2026 [你的名字]
 """
+import subprocess
+try:
+    ver = subprocess.run(["pandoc", "--version"], capture_output=True, text=True, encoding="utf-8")
+    print(ver.stdout.split("\n")[0])
+except Exception:
+    pass
 
+    
 import os
 import subprocess
 import glob
@@ -17,11 +24,9 @@ VERSION = "1.0.0"
 
 # ====== 配置区 ======
 TARGET_KEYWORDS = [
-    "财富",
-    "反焦虑",
-    "思考"
+    "背诵"
 ]
-OUTPUT_EPUB = "我的合集.epub"
+OUTPUT_EPUB = "背诵本.epub"
 METADATA_FILE = "metadata.yaml"
 TEMP_DIR = "_temp_epub_build"
 VAULT_ROOT = os.path.abspath(".")
@@ -256,7 +261,9 @@ def convert_folders_to_epub(target_keywords, output_epub):
         "--embed-resources",
         "--standalone",
         "--css=epub-style.css",
-        "--epub-chapter-level=2"
+        "--split-level=2",
+        "--epub-embed-font=fonts/苹方字体.ttf",   # 新增：嵌入字体
+
     ]
 
     if os.path.exists(METADATA_FILE):
