@@ -97,9 +97,9 @@ lang: zh-CN
 ---
 ```
 
-**2. `epub-style.css`**（中文排版样式，见 [样式表](#样式表) 一节）
+**2. `epub-style.css`**（中文排版样式，见 [样式表](epub-style.css) 一节）
 
-**3. `convert.py`**（主脚本，见 [完整脚本](#完整脚本) 一节）
+**3. `convert.py`**（主脚本，见 [完整脚本](convert.py) 一节）
 
 ### 第二步：修改脚本配置
 
