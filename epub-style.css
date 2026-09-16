@@ -6,6 +6,14 @@
     font-style: normal;
 }
 
+
+@font-face {
+    font-family: "方正楷体";
+    src: url("../fonts/方正楷体.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* ===== iBook专用 ===== */
 :root {
     color-scheme: light dark;

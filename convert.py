@@ -24,9 +24,9 @@ VERSION = "1.0.0"
 
 # ====== 配置区 ======
 TARGET_KEYWORDS = [
-    "党史"
+    "治愈"
 ]
-OUTPUT_EPUB = "党史.epub"
+OUTPUT_EPUB = "反焦虑｜治愈.epub"
 METADATA_FILE = "metadata.yaml"
 TEMP_DIR = "_temp_epub_build"
 VAULT_ROOT = os.path.abspath(".")
@@ -265,7 +265,7 @@ def convert_folders_to_epub(target_keywords, output_epub):
         "--include-before-body=body-open.html",    # ← 插入 <div ...>
         "--include-after-body=body-close.html",    # ← 插入 </div>
         "--epub-embed-font=fonts/苹方字体.ttf",   # 新增：嵌入字体
-
+        "--epub-embed-font=fonts/方正楷体.ttf",
     ]
 
     if os.path.exists(METADATA_FILE):
